@@ -1,0 +1,14 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "q",
+  "patterns": [
+    {
+      "include": "source.k"
+    },
+    {
+      "name": "keyword.k",
+      "match": "\\b(aj|aj0|ajf|ajf0|all|and|any|asc|asof|attr|avgs|ceiling|cols|count|cross|csv|cut|deltas|desc|differ|distinct|dsave|each|ej|ema|eval|except|fby|fills|first|fkeys|flip|floor|get|group|gtime|hclose|hcount|hdel|hsym|iasc|idesc|ij|ijf|inter|inv|key|keys|lj|ljf|load|lower|lsq|ltime|ltrim|mavg|maxs|mcount|md5|mdev|med|meta|mins|mmax|mmin|mmu|mod|msum|neg|next|not|null|or|over|parse|peach|pj|prds|prev|prior|rand|rank|ratios|raze|read0|read1|reciprocal|reval|reverse|rload|rotate|rsave|rtrim|save|scan|scov|sdev|set|show|signum|ssr|string|sublist|sums|sv|svar|system|tables|til|trim|type|uj|ujf|ungroup|union|upper|upsert|value|view|views|vs|wj|wj1|xasc|xbar|xcol|xcols|xdesc|xgroup|xkey|xlog|xprev|xrank)\\b"
+    }
+  ],
+  "scopeName": "source.q"
+}

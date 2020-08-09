@@ -1,0 +1,49 @@
+{
+  "name": "vscode-kdb",
+  "displayName": "vscode-kdb",
+  "description": "VSCode extension for q/kdb+",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.47.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "q",
+        "aliases": [
+          "q",
+          "q"
+        ],
+        "extensions": [
+          ".q"
+        ],
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "k",
+        "aliases": [
+          "k"
+        ],
+        "extensions": [
+          ".k"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "q",
+        "scopeName": "source.q",
+        "path": "./syntaxes/q.tmLanguage.json"
+      },
+      {
+        "language": "k",
+        "scopeName": "source.k",
+        "path": "./syntaxes/k.tmLanguage.json"
+      }
+    ]
+  }
+}

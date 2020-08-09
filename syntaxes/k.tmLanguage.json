@@ -1,0 +1,170 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "k",
+  "patterns": [
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#symbols"
+    },
+    {
+      "include": "#entities"
+    },
+    {
+      "include": "#constants"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.k",
+          "comment": "TODO: by|delete|exec|from|select|update|where",
+          "match": "\\b(abs|acos|asin|atan|avg|bin|binr|cor|cos|cov|dev|div|enlist|exit|exp|getenv|hopen|in|insert|last|like|log|max|min|prd|setenv|sin|sqrt|ss|sum|tan|var|wavg|within|wsum|xexp)\\b"
+        },
+        {
+          "name": "keyword.control.k",
+          "match": "\\b(do|if|while)\\b"
+        },
+        {
+          "name": "variable.language.k",
+          "match": "\\.z\\.(D|K|N|P|T|W|X|Z|a|ac|b|bm|c|d|e|ex|exit|ey|f|h|i|k|l|n|o|p|pc|pd|pg|ph|pi|pm|po|pp|pq|ps|pw|q|s|t|ts|u|vs|w|wc|wo|ws|x|z|zd)\\b"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.k",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.k",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "comment": "system call",
+          "name": "string.interpolated.k",
+          "match": "^\\\\\\w.*$"
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.k",
+          "match": "^/\\s*\\S.*$"
+        },
+        {
+          "name": "comment.line.k",
+          "match": "\\s/.*$"
+        },
+        {
+          "name": "comment.block.k",
+          "begin": "^/\\s*$",
+          "end": "^\\\\\\s*$"
+        },
+        {
+          "name": "comment.block.k",
+          "begin": "^\\\\\\s*$"
+        }
+      ]
+    },
+    "symbols": {
+      "patterns": [
+        {
+          "comment": "file",
+          "name": "entity.name.type.k",
+          "match": "`:[\\w/:.]*"
+        },
+        {
+          "comment": "symbol",
+          "name": "entity.name.type.k",
+          "match": "`([\\w/:.]+)?"
+        }
+      ]
+    },
+    "entities": {
+      "patterns": [
+        {
+          "comment": "function",
+          "captures": {
+            "1": {
+              "name": "entity.name.function.k"
+            }
+          },
+          "match": "(\\.?[a-zA-Z]\\w*):\\s*[{]"
+        },
+        {
+          "comment": "variable",
+          "captures": {
+            "1": {
+              "name": "entity.name.tag.k"
+            }
+          },
+          "match": "\\b(\\.?[a-zA-Z][\\w\\.]*)\\s*[-_~=!@#$%^&*+|,<>?]?::?"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "comment": "io",
+          "name": "constant.numeric.k",
+          "match": "\\b[01]:"
+        },
+        {
+          "comment": "timespan/timestamp",
+          "name": "constant.numeric.k",
+          "match": "\\b(\\d{4}\\.\\d{2}\\.\\d{2}|\\d+)D(\\d{2}(:\\d{2}(:\\d{2})?)?)?(\\.\\d{,9})?\\b"
+        },
+        {
+          "comment": "month/date/datetime",
+          "name": "constant.numeric.k",
+          "match": "\\b\\d{4}\\.\\d{2}(m|\\.\\d{2}(T(\\d{2}(:\\d{2}(:\\d{2})?)?)?(\\.\\d{,3})?)?)\\b"
+        },
+        {
+          "comment": "time",
+          "name": "constant.numeric.k",
+          "match": "\\b\\d{2}:\\d{2}(:\\d{2})?(\\.\\d{,3})?\\b"
+        },
+        {
+          "comment": "byte",
+          "name": "constant.numeric.k",
+          "match": "\\b0x[0-9a-fA-F]+\\b"
+        },
+        {
+          "comment": "null/infinity",
+          "name": "constant.numeric.k",
+          "match": "\\b0[nNwW][cefghijmndzuvtp]?\\b"
+        },
+        {
+          "comment": "boolean",
+          "name": "constant.numeric.k",
+          "match": "\\b[01]+b\\b"
+        },
+        {
+          "comment": "float",
+          "name": "constant.numeric.k",
+          "match": "\\b\\d*[0-9\\.][0-9]*(e[-+]?\\d+)?[ef]?\\b"
+        },
+        {
+          "comment": "integer",
+          "name": "constant.numeric.k",
+          "match": "\\b[0-9]+[cefhijnptuv]?\\b"
+        }
+      ]
+    }
+  },
+  "scopeName": "source.k"
+}
